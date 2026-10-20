@@ -4,10 +4,10 @@ info:
   description: Distributor Management Core Application
   contact:
     name: Firefly Software Foundation
-    email: dev@getfirefly.io
+    email: dev@fireflysoftware.io
   version: 1.0.0
 servers:
-  - url: http://core.getfirefly.io/distributors
+  - url: https://openplatform.fireflysoftware.io/distributors
     description: Development Environment
   - url: /
     description: Local Development Environment
