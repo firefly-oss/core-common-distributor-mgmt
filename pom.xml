@@ -12,6 +12,7 @@
     </parent>
 
     <artifactId>core-common-distributor-mgmt</artifactId>
+    <name>core-common-distributor-mgmt</name>
     <packaging>pom</packaging>
     <modules>
         <module>core-common-distributor-mgmt-core</module>
