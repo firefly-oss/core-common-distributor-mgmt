@@ -1576,7 +1576,7 @@ management:
 
 logging:
   level:
-    com.firefly.core.distributor: DEBUG
+    io.fireflysoftware.core.distributor: DEBUG
     org.springframework.r2dbc: DEBUG
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
@@ -1626,7 +1626,7 @@ spring:
 logging:
   level:
     root: DEBUG
-    com.firefly: TRACE
+    io.fireflysoftware: TRACE
 ```
 
 #### Production Profile (`prod`)
@@ -1641,7 +1641,7 @@ spring:
 logging:
   level:
     root: WARN
-    com.firefly: INFO
+    io.fireflysoftware: INFO
   file:
     name: /var/log/distributor-management.log
 ```
@@ -1665,23 +1665,23 @@ The project follows a clean architecture with clear separation of concerns:
 ```
 core-common-distributor-mgmt/
 ├── core-common-distributor-mgmt-core/
-│   ├── src/main/java/com/firefly/core/distributor/core/
+│   ├── src/main/java/io/fireflysoftware/core/distributor/core/
 │   │   ├── mappers/          # MapStruct mappers for entity-DTO conversion
 │   │   └── services/         # Business logic and service implementations
 │   └── src/test/java/        # Unit tests for services
 ├── core-common-distributor-mgmt-interfaces/
-│   └── src/main/java/com/firefly/core/distributor/interfaces/
+│   └── src/main/java/io/fireflysoftware/core/distributor/interfaces/
 │       ├── dtos/             # Data Transfer Objects
 │       └── enums/            # Enumeration definitions
 ├── core-common-distributor-mgmt-models/
-│   └── src/main/java/com/firefly/core/distributor/models/
+│   └── src/main/java/io/fireflysoftware/core/distributor/models/
 │       ├── entities/         # R2DBC entities
 │       └── repositories/     # Spring Data repositories
 ├── core-common-distributor-mgmt-sdk/
 │   └── src/main/resources/
 │       └── api-spec/         # OpenAPI specification
 └── core-common-distributor-mgmt-web/
-    ├── src/main/java/com/firefly/core/distributor/web/
+    ├── src/main/java/io/fireflysoftware/core/distributor/web/
     │   └── controllers/      # REST API controllers
     └── src/main/resources/   # Configuration files
 ```
@@ -1693,7 +1693,7 @@ core-common-distributor-mgmt/
 - **Methods**: camelCase (e.g., `createDistributor`)
 - **Variables**: camelCase (e.g., `distributorId`)
 - **Constants**: UPPER_SNAKE_CASE (e.g., `MAX_RETRY_ATTEMPTS`)
-- **Packages**: lowercase with dots (e.g., `com.firefly.core.distributor`)
+- **Packages**: lowercase with dots (e.g., `io.fireflysoftware.core.distributor`)
 
 #### Documentation
 - All public methods must have Javadoc comments
@@ -1974,7 +1974,7 @@ spring:
 
 logging:
   level:
-    com.firefly: DEBUG
+    io.fireflysoftware: DEBUG
 
 management:
   endpoints:
@@ -1996,7 +1996,7 @@ spring:
 logging:
   level:
     root: WARN
-    com.firefly: INFO
+    io.fireflysoftware: INFO
   file:
     name: /var/log/distributor-management.log
 
