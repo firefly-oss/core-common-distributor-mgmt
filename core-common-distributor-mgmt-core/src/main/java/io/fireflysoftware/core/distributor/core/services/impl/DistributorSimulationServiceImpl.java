@@ -24,6 +24,7 @@ import io.fireflysoftware.core.distributor.core.mappers.DistributorSimulationMap
 import io.fireflysoftware.core.distributor.core.services.DistributorSimulationService;
 import io.fireflysoftware.core.distributor.interfaces.dtos.DistributorSimulationDTO;
 import io.fireflysoftware.core.distributor.models.entities.DistributorSimulation;
+import io.fireflysoftware.core.distributor.models.repositories.DistributorRepository;
 import io.fireflysoftware.core.distributor.models.repositories.DistributorSimulationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,6 +44,9 @@ public class DistributorSimulationServiceImpl implements DistributorSimulationSe
 
     @Autowired
     private DistributorSimulationRepository repository;
+
+    @Autowired
+    private DistributorRepository distributorRepository;
 
     @Autowired
     private DistributorSimulationMapper mapper;
@@ -120,6 +124,13 @@ public class DistributorSimulationServiceImpl implements DistributorSimulationSe
     @Override
     public Flux<DistributorSimulationDTO> getSimulationsByStatus(String simulationStatus) {
         return repository.findBySimulationStatus(simulationStatus)
+                .map(mapper::toDTO);
+    }
+
+    @Override
+    public Flux<DistributorSimulationDTO> getSimulationsByCountry(UUID countryId) {
+        return distributorRepository.findByCountryId(countryId)
+                .flatMap(distributor -> repository.findByDistributorId(distributor.getId()))
                 .map(mapper::toDTO);
     }
 

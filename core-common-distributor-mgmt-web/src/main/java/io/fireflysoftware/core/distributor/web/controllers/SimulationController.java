@@ -91,8 +91,6 @@ public class SimulationController {
     public ResponseEntity<Flux<DistributorSimulationDTO>> getSimulationsByCountry(
             @Parameter(description = "ID of the country", required = true)
             @PathVariable UUID countryId) {
-        // This would require a more complex query joining with distributor operations
-        // For now, we'll return an empty flux as this would need additional service methods
-        return ResponseEntity.ok(Flux.empty());
+        return ResponseEntity.ok(distributorSimulationService.getSimulationsByCountry(countryId));
     }
 }

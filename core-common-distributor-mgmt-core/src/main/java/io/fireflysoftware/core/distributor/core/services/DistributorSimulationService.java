@@ -103,6 +103,11 @@ public interface DistributorSimulationService {
     Flux<DistributorSimulationDTO> getSimulationsByStatus(String simulationStatus);
 
     /**
+     * Simulations for distributors registered in the country.
+     */
+    Flux<DistributorSimulationDTO> getSimulationsByCountry(UUID countryId);
+
+    /**
      * Retrieves simulations by distributor and status.
      *
      * @param distributorId the distributor ID
